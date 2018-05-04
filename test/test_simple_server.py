@@ -1,6 +1,6 @@
 import socket
 import sys
-import thread
+import _thread
 import unittest
 
 sys.path.append('lib')
@@ -13,7 +13,7 @@ class TestServer(unittest.TestCase):
 		server.start()
 
 	def test_port_is_open(self):
-		thread.start_new_thread( self.start_server, () )
+		_thread.start_new_thread( self.start_server, () )
 		s = socket.socket()
 
 		self.assertIsNone(s.connect(('localhost', 8000)))
