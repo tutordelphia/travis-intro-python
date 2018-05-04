@@ -1,5 +1,12 @@
 language: python 
 python:
-    - "3.6"
+  - "3.6"
 script: python test/test_simple_server.py
 
+deploy:
+   provider: releases
+   api_key: $GITHUB_OAUTH_TOKEN
+   file: lib/server.py
+   skip_cleanup: true
+   on:
+    tags: true
